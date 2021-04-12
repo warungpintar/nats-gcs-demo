@@ -11,7 +11,7 @@ os.environ["GCS_PATH"] = "warpin-datalake"
 os.environ["GCS_SUBPATH"] = "nats-lake"
 ```
 
-### If you don't have docker engine installed on your local machine 
+### If you don't have docker engine installed on your local machine
 
 - https://docs.docker.com/get-docker/
 
@@ -24,14 +24,14 @@ os.environ["GCS_SUBPATH"] = "nats-lake"
 1.
 		python pubs_stream.py
 
-2. 
+2.
 		python nats-subscribe.py
 
-3. 
+3.
 		python file_mover.py
 
 
-### Check gcs storage 
+### Check gcs storage
 
 - {warpin-datalake/nats-lake/hitung} according to your gcs bucket
 
@@ -39,5 +39,15 @@ os.environ["GCS_SUBPATH"] = "nats-lake"
 
 <center><img src="img_notes/code_run.png" width="700" height="500"></center>
 
-- 
+-
 <center><img src="img_notes/file_moved_to_gcs.png" width="700" height="230"></center>
+
+## Demo Protocol Buffers
+
+To create and read file `records.bin`, Run the following commands:
+1. `python proto_write.py`
+2. `python proto_read.py`
+
+To publish and consume protocol buffers messages in NATS Streaming server, make sure the NATS Streaming server has run. Then run the following commands in separate terminal windows.
+1. `python publisher.py`
+2. `python subscriber.py`

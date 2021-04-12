@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package holder;
+
+message CardHolder {
+  required string name = 1;
+  required string job = 2;
+  required string phone_number = 3;
+  required string address = 4;
+  required string card_number = 5;
+  required string card_provider = 6;
+}
