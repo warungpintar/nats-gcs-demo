@@ -57,11 +57,13 @@ async def run(loop):
         print("Received a message (seq={}): {}".format(msg.seq, msg.data))
 
         f = open(filename, 'a')
-        read_card_holder = ReadCardHolder()
-        read_card_holder.card_holder.ParseFromString(msg.data)
-        js = json.dumps(read_card_holder.GetRowToInsert())
-        f.write(js + "\n")
+        f.write(msg.data.decode()+'\n')
         f.close()
+        # read_card_holder = ReadCardHolder()
+        # read_card_holder.card_holder.ParseFromString(msg.data)
+        # js = json.dumps(read_card_holder.GetRowToInsert())
+        # f.write(js + "\n")
+        # f.close()
 
     await sc.subscribe(channel, queue=queue, start_at="first", durable_name=durable, cb=cb)
 

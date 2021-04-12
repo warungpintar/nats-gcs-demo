@@ -41,7 +41,7 @@ async def run(loop):
         card_holder_book = holder_pb2.CardHolder()
         msg = write_card_holder.PromptForAddress(card_holder_book)
         print("Publish", msg)
-        await sc.publish("hitung", msg)
+        await sc.publish("hitung", str(msg).encode())
         time.sleep(1)
 
     def signal_handler():
